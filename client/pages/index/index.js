@@ -101,8 +101,6 @@ Page({
                 util.showBusy('正在上传')
                 var filePath = res.tempFilePaths[0]
 
-                console.log(filePath)
-
                 // 上传图片
                 wx.uploadFile({
                     url: config.service.uploadUrl,
@@ -111,7 +109,9 @@ Page({
 
                     success: function(res){
                         util.showSuccess('上传图片成功')
+                        console.log(res)
                         res = JSON.parse(res.data)
+                        console.log(res)
                         that.setData({
                             imgUrl: res.data.imgUrl
                         })

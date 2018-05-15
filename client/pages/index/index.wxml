@@ -56,4 +56,8 @@
             <text>快速增加 CGI</text>
         </navigator>
     </view>
+    
+    <view wx:for="{{[1,2,3]}} ">
+  {{item}}
+</view>
 </view>
