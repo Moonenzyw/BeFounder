@@ -14,9 +14,6 @@ Page({
         var that = this
         qcloud.request({
             url: `${config.service.host}/weapp/demo`,
-            data : {
-              table : 'cAuth'
-            },
             login: false,
             success (result) {
                 util.showSuccess('请求成功完成')
@@ -43,17 +40,10 @@ Page({
 })
 
 var code = [
-`<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Demo extends CI_Controller {
-    public function index() {
-        $this->json([
-            'code' => 0,
-            'data' => [
-                'msg' => 'Hello World'
-            ]
-        ]);
+`router.get('/demo', controllers.demo)`,
+`module.exports = ctx => {
+    ctx.state.data = {
+        msg: 'Hello World'
     }
 }`
 ]
